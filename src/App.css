@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: whitesmoke;
+}
+
+.container {
+  background-color: #c7bcbc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 600px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 300px;
+  }
+}
+
+
+
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.container h3 {
+  margin-bottom: 2rem;
+}
+
+.container p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container li.option {
+  background-color: #02020f;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.container li.option.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.container li.option.rejected {
+  background-color: red;
+}
+
+.container input[type="radio"] {
+  display: none;
+}
+
+.container button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
