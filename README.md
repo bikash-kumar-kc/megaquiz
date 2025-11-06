@@ -1,4 +1,4 @@
-# 🎯 QuizApp
+# 🎯 megaquiz
 
 A modern **Quiz Application** built with **React** and powered by **Appwrite** as a Backend-as-a-Service (BaaS). Users can store quiz data and profile images while enjoying a smooth and responsive UI.  
 
