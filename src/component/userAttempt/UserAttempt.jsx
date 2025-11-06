@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "..";
 import { Box, Button, Card, Center, Heading, Text } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate} from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import databaseservices from "../../appwrite/database";
 import { toast } from "react-toastify";

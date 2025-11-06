@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Container, QuizOptions } from "..";
 import { Box, Center, Spinner } from "@chakra-ui/react";

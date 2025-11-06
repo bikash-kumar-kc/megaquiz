@@ -1,4 +1,4 @@
-import { Box, Card, Center, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { Container, QuestionCard, ServerStateManagement } from "..";
 import { getQuestions } from "../../store/questionSlice";

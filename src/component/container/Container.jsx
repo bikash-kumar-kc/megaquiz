@@ -6,7 +6,9 @@ const Container = ({ children }) => {
     <Box as="div" w="full" px={{
       base:"0.5rem",
       lg:"4rem"
-    }}>
+    }}
+    mb="1rem"
+    >
       {children}
     </Box>
   );

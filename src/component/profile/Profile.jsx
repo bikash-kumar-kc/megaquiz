@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import {
   Box,
@@ -6,7 +5,6 @@ import {
   Center,
   Flex,
   Heading,
-  Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -25,12 +23,11 @@ const Profile = () => {
   const userData = useSelector((store) => store.userAuth.userData);
   const record = useSelector((store) => store.userrecord.userData);
   const isRecord = useSelector((store) => store.userrecord.isRecord);
-  
-  
+
   const [imageUrl, setImageUrl] = useState(null);
   const [stats, setStats] = useState({ correct: 0, wrong: 0, unattempt: 0 });
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const capitalizeWords = (str) =>
     str
@@ -49,23 +46,25 @@ const Profile = () => {
 
   const userId = userData?.$id;
 
-
-  console.log(imageUrl);
-
   // Upload Profile Image
   const { mutate: uploadImage } = useMutation({
     mutationKey: ["profile-image"],
     mutationFn: storage.creatingFile,
-    onSuccess: () => toast.success("Profile image uploaded!"),
+    onSuccess: () => {
+      toast.success("Profile image uploaded!");
+      fetchProfileImage();
+      reset(); // reset file input
+    },
     onError: () => toast.error("Failed to upload image"),
   });
 
-  const { mutate: fetchImage } = useMutation({
-    mutationKey: ["profile-preview"],
-    mutationFn: storage.getFile,
-    onSuccess: (data) => setImageUrl(data),
-    onError: () => toast.error("Failed to fetch profile image"),
-  });
+  // Fetch Profile Image
+  const fetchProfileImage = () => {
+    storage
+      .getFile(userId)
+      .then((url) => setImageUrl(url))
+      .catch(() => setImageUrl(null)); // set null if image not found
+  };
 
   const submitImage = (data) => {
     if (data.file && data.file[0]) {
@@ -73,7 +72,7 @@ const Profile = () => {
     }
   };
 
-  // Compute Stats
+  // Compute Stats and fetch image
   useEffect(() => {
     if (isRecord && record) {
       const total = Number(record.questionAttempt) || 1;
@@ -83,11 +82,10 @@ const Profile = () => {
         unattempt: (Number(record.unattempt) / total) * 100,
       });
     }
-    if (!imageUrl) fetchImage(userData?.$id);
-  }, [record, isRecord, imageUrl, userData]);
+    if (userData?.$id) fetchProfileImage();
+  }, [record, isRecord, userData]);
 
-  if (!userData) return null; 
-
+  if (!userData) return null;
 
   return (
     <Container>
@@ -116,11 +114,10 @@ const Profile = () => {
           borderRadius="full"
           overflow="hidden"
           shadow="md"
-          display={"flex"}
+          display="flex"
+          justifyContent="center"
         >
-          {imageUrl ? (
-            <img src={imageUrl} boxSize="100%" objectFit="cover" />
-          ) : (
+          {!imageUrl ? (
             <Center h="100%" bg="gray.100">
               <form onSubmit={handleSubmit(submitImage)}>
                 <Stack spacing={2} align="center">
@@ -139,12 +136,24 @@ const Profile = () => {
                     {...register("file", { required: true })}
                     hidden
                   />
-                  <Button type="submit" size="sm" colorScheme="green">
+                  <Button
+                    type="submit"
+                    size="sm"
+                    bg="green.500"
+                    _hover={{ bg: "green.400" }}
+                  >
                     Submit
                   </Button>
                 </Stack>
               </form>
             </Center>
+          ) : (
+            <img
+              src={imageUrl}
+              alt="Profile"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              onError={() => setImageUrl(null)} // reset if broken
+            />
           )}
         </Box>
 

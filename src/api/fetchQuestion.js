@@ -1,14 +1,10 @@
-import { useSelector } from "react-redux";
-import config from "../../config/config";
+
 
 const fetchQuestions = async ({
   totalquestions,
   categoryCode,
   difficultyMode,
 }) => {
-  
-  
-
   try {
     const response =
       await fetch(`https://opentdb.com/api.php?amount=${totalquestions}&category=${categoryCode}&difficulty=${difficultyMode}&type=multiple
