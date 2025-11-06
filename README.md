@@ -1,16 +1,52 @@
-# React + Vite
+# 🎯 megaquiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Quiz Application** built with **React** and powered by **Appwrite** as a Backend-as-a-Service (BaaS). Users can store quiz data and profile images while enjoying a smooth and responsive UI.  
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🗄 **Appwrite**: Store quiz data & user profile images  
+- ⚡ **React Query**: Efficient API fetching & caching  
+- 📝 **Formik**: Easy and validated forms  
+- 🛠 **Redux Toolkit**: Powerful state management  
+- 🌐 **React Router DOM**: Seamless navigation  
+- 🎨 **Chakra UI** & **Tailwind CSS**: Responsive & modern UI  
 
-## React Compiler
+## 🧰 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React, Chakra UI, Tailwind CSS, Formik  
+- **State Management**: Redux Toolkit  
+- **Routing**: React Router DOM  
+- **Backend**: Appwrite  
+- **Data Fetching**: React Query  
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repo:  
+```bash
+git clone https://github.com/bikash-kumar-kc/megaquiz.git
+```
+2. Navigate to the project folder:
+``` bash
+cd megaquiz
+```
+3.Install dependencies:
+``` bash
+npm install
+```
+4.Start the development server:
+``` bash
+npm start
+```
+
+## 🔗 Usage
+- Users can add, edit, and delete quiz questions  
+- Upload and manage profile images  
+- Navigate smoothly between pages using React Router  
+
+## 📄 License
+This project is licensed under the MIT License.
+
+
+
+
+
