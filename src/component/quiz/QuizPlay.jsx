@@ -24,6 +24,8 @@ const QuizPlay = () => {
     (store) => store.userrequirement.difficultyMode,shallowEqual
   );
 
+  const userData = useSelector((state)=> state.userAuth.userData);
+
   // if (isuserRequirement) {
   useEffect(() => {
     dispatch(getQuestions({ totalquestions, categoryCode, difficultyMode }));
@@ -75,7 +77,7 @@ const QuizPlay = () => {
                   textAlign="center"
                   fontWeight={"bold"}
                 >
-                  Hey bikash, Enjoy the quiz
+                  Hey {userData?.name}, Enjoy the quiz
                 </Text>
               </Box>
               <Box as="div">
