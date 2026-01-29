@@ -23,7 +23,7 @@ function App() {
 
   const { mutate: userRecord } = useMutation({
     mutationKey: ["user-Data"],
-    mutationFn: databaseservices.gettingaRecord,
+    mutationFn:(id)=> databaseservices.gettingaRecord(id),
     onSuccess: (userData) => {
       if (userData) {
         dispatch(updateUserRecord(userData));
