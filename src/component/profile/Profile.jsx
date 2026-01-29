@@ -59,8 +59,8 @@ const Profile = () => {
   });
 
   // Fetch Profile Image
-  const fetchProfileImage = () => {
-    storage
+  const fetchProfileImage = async() => {
+    await storage
       .getFile(userId)
       .then((url) => setImageUrl(url))
       .catch(() => setImageUrl(null)); // set null if image not found

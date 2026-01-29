@@ -19,7 +19,7 @@ const SideBar = ({authStatus}) => {
         <Drawer.Positioner>
           <Drawer.Content>
             <Drawer.Context>
-              {(store) => (
+              {() => (
                 <Drawer.Body pt="6" spaceY="3">
                   <Box
                     as="ul"

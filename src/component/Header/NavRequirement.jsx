@@ -56,13 +56,13 @@ const NavRequirement = ({authStatus}) => {
   const { mutate } = useMutation({
     mutationKey: ["logout"],
     mutationFn: authenservice.logoutUser,
-    onSuccess: (data) => {
+    onSuccess: () => {
       navigate("/");
       toast("logout successfully");
       dispatch(logout());
     },
     onError: (error) => {
-      toast("error in logout");
+      toast("error in logout"+error);
     },
   });
   return (

@@ -44,7 +44,6 @@ class DatabaseServices {
     {userId, gamePlayed, correctAttempt, wrongAttempt,questionAttempt, unattempt }
   ) => {
 
-    console.log(gamePlayed,questionAttempt,correctAttempt,wrongAttempt,unattempt)
     try {
       return await this.database.updateRow({
         databaseId:config.appwriteDatabaseid,
