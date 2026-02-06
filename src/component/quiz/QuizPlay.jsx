@@ -42,6 +42,7 @@ const QuizPlay = () => {
       <ServerStateManagement
         image={imgaewaiting}
         message={"Questions are being fetched. Wait till"}
+        userName={userData?.name}
       />
     );
   } else if (questionStatus === "false") {

@@ -1,7 +1,7 @@
 import { Box, Card, Center, Container, Text, Image } from "@chakra-ui/react";
 import React from "react";
 
-const ServerStateManagement = ({ image, message }) => {
+const ServerStateManagement = ({ image, message,userName }) => {
   return (
     <Container>
       <Center minH="80vh" mt="2rem">
@@ -45,7 +45,7 @@ const ServerStateManagement = ({ image, message }) => {
                   }}
                   fontWeight={"bold"}
                 >
-                  Hey bikash,
+                 {userName || "user"}
                 </Text>
               </Box>
               <Box>
