@@ -59,11 +59,11 @@ const Profile = () => {
   });
 
   // Fetch Profile Image
-  const fetchProfileImage = async() => {
-    await storage
-      .getFile(userId)
-      .then((url) => setImageUrl(url))
-      .catch(() => setImageUrl(null)); // set null if image not found
+  const fetchProfileImage = () => {
+    const data= storage
+      .getFile(userId);
+      console.log(data);
+      setImageUrl(data)
   };
 
   const submitImage = (data) => {
